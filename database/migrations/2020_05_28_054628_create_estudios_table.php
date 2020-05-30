@@ -13,15 +13,16 @@ class CreateEstudiosTable extends Migration
      */
     public function up()
     {
-        Schema::create('estudio', function (Blueprint $table) {
+        Schema::create('estudios', function (Blueprint $table) {
             $table->id('idEstudio');
             $table->string('tipoEstudio', 500);
             $table->date('fechaEstudio');
             $table->enum('asistioPaciente',['si','no'])->nullable();
             $table->date('fechaEntrega')->nullable();
             $table->date('fechaProximo')->nullable();
-            $table->date('fechaRevisión')->nullable();
+            $table->date('fechaRevision')->nullable();
             $table->string('resultadoEstudio', 500)->nullable();
+            $table->timestamps();
         });
     }
 
