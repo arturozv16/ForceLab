@@ -23,4 +23,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::post('estudio/resultadoEstudio', 'EstudioController@resultadoEstudio')->name('estudio.resultadoEstudio');
+Route::post('estudio/{estudio}/resultadoEstudio', 'EstudioController@resultadoEstudio')->name('estudio.resultadoEstudio');

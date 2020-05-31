@@ -7,5 +7,8 @@
         @include('estudios.form')
     </form>
     <br/>
-    @include('estudios.form_archivo')
+    <form action="{{ route('estudio.resultadoEstudio',$estudio) }}" method="POST" enctype="multipart/form-data">
+        @method("PUT")
+        @include('estudios.form_archivo')
+    </form>
 @endsection

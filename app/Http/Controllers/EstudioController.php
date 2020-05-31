@@ -51,7 +51,7 @@ class EstudioController extends Controller
      */
     public function show(Estudio $estudio)
     {
-        //
+        return view('estudios.show',['estudio'=>$estudio]);
     }
 
     /**
@@ -76,7 +76,7 @@ class EstudioController extends Controller
     public function update(StoreEstudio $request, Estudio $estudio)
     {
         $estudio->update($request->validated());
-        return back()->with('status',' updated succesfully');
+        return back()->with('status',' Updated succesfully');
     }
 
     /**
@@ -96,10 +96,9 @@ class EstudioController extends Controller
             'resultadoEstudio' => 'required|mimes:jpeg,jpg,png,pdf|max:10240', //10mb
         ]);
         $filename = time().".".$request->resultadoEstudio->extension();
-        //$request->resultadoEstudio->move(public_path(), $filename);
-        $estudio->resultadoEstudio = $filename;
-        $estudio->update($estudio);
-
+        $request->resultadoEstudio->move(public_path(), $filename);
+        $estudio->update(['resultadoEstudio'=>$filename,]);
+        return back()->with('status',"El resultado del estudio se guardó correctamente");
     }
 
 }
