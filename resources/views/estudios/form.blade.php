@@ -9,18 +9,25 @@
     </div>
     <div class="form-group">
         <label for="exampleFormControlSelect1" class="mr-4">Asistió el paciente:</label>
-        {{-- <div class="form-check"> --}}
-            <input class="form-check-input mr-5" type="radio" name="asistioPaciente" id="asistioPaciente" value="si">
+        
+            <input class="form-check-input mr-5" type="radio" name="asistioPaciente" id="asistioPaciente" value="si" 
+            @if ($estudio->asistioPaciente == "si")
+                checked
+            @endif
+            >
             <label class="form-check-label mr-5" for="asistioPaciente1">
               Sí
             </label>
-          {{-- </div> --}}
-          {{-- <div class="form-check"> --}}
-            <input class="form-check-input" type="radio" name="asistioPaciente" id="asistioPaciente" value="no">
+          
+            <input class="form-check-input" type="radio" name="asistioPaciente" id="asistioPaciente" value="no"
+            @if ($estudio->asistioPaciente == "no")
+                checked
+            @endif
+            >
             <label class="form-check-label" for="asistioPaciente">
               No
             </label>
-          {{-- </div> --}}
+         
       </div>
     <div class="form-group">
         <label for="url_clean">Fecha de entrega</label>
