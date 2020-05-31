@@ -14,7 +14,7 @@ class CreateEstudiosTable extends Migration
     public function up()
     {
         Schema::create('estudios', function (Blueprint $table) {
-            $table->id('idEstudio');
+            $table->id();
             $table->string('tipoEstudio', 500);
             $table->date('fechaEstudio');
             $table->enum('asistioPaciente',['si','no'])->nullable();
@@ -33,6 +33,6 @@ class CreateEstudiosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estudio');
+        Schema::dropIfExists('estudios');
     }
 }

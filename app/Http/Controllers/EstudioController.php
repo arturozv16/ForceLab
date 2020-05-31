@@ -60,9 +60,10 @@ class EstudioController extends Controller
      * @param  \App\Estudio  $estudio
      * @return \Illuminate\Http\Response
      */
-    public function edit(Estudio $estudio)
-    {
-        //
+    public function edit($id)
+    {   
+        $estudio = Estudio::findOrFail($id);
+        return view('estudios/editar',['estudio'=>$estudio]);
     }
 
     /**
@@ -87,4 +88,17 @@ class EstudioController extends Controller
     {
         //
     }
+
+
+    public function resultadoEstudio(Request $request, Estudio $estudio){
+        $request->validate([
+            'resultadoEstudio' => 'required|mimes:jpeg,jpg,png,pdf|max:10240', //10mb
+        ]);
+        $filename = time().".".$request->resultadoEstudio->extension();
+        //$request->resultadoEstudio->move(public_path(), $filename);
+        $estudio->resultadoEstudio = $filename;
+        $estudio->update($estudio);
+
+    }
+
 }
