@@ -48,5 +48,9 @@
 
 
     <br/>
-    <a href="{{ asset('storage/'.$estudio->resultadoEstudio) }}">Resultado del estudio</a>
+    @if ($estudio->resultadoEstudio != "")
+    <a href="{{ asset('storage/'.$estudio->resultadoEstudio) }}">Resultado del estudio</a> 
+    @else
+    <p>Sin resultado</p>   
+    @endif
 @endsection

@@ -8,7 +8,7 @@
     </form>
     <br/>
     <form action="{{ route('estudio.resultadoEstudio',$estudio) }}" method="POST" enctype="multipart/form-data">
-        @method("PUT")
+        @method("POST")
         @include('estudios.form_archivo')
     </form>
 @endsection

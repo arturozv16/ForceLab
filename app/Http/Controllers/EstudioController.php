@@ -15,7 +15,9 @@ class EstudioController extends Controller
      */
     public function index()
     {
-        //
+        $estudios = Estudio::orderBy('created_at','desc')->paginate(10);
+        
+        return view ('estudios.index', ['estudios' => $estudios]);
     }
 
     /**
@@ -87,11 +89,15 @@ class EstudioController extends Controller
      */
     public function destroy(Estudio $estudio)
     {
-        //
+        $estudio->delete();
+        return back()->with('status','Estudio eliminado correctamente');
     }
 
 
     public function resultadoEstudio(Request $request, Estudio $estudio){
+        if ($estudio->resultadoEstudio != ""){
+            unlink(public_path()."/storage/".$estudio->resultadoEstudio);
+        }
         $request->validate([
             'resultadoEstudio' => 'required|mimes:jpeg,jpg,png,pdf|max:10240', //10mb
         ]);
@@ -99,6 +105,6 @@ class EstudioController extends Controller
         $request->resultadoEstudio->move(public_path()."/storage", $filename);
         $estudio->update(['resultadoEstudio'=>$filename,]);
         return back()->with('status',"El resultado del estudio se guardó correctamente");
-    }
+    } 
 
 }

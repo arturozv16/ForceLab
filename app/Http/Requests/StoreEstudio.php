@@ -27,9 +27,9 @@ class StoreEstudio extends FormRequest
             'tipoEstudio'=>'required | min:3 | max:500',
             'asistioPaciente'=>'',
             'fechaEstudio'=>'required',
-            'fechaEntrega'=>'date',
-            'fechaProximo'=>'date',
-            'fechaRevision'=>'date',
+            'fechaEntrega'=>'',
+            'fechaProximo'=>'',
+            'fechaRevision'=>'',
         ];
     }
 }
