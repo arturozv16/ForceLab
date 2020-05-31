@@ -73,9 +73,10 @@ class EstudioController extends Controller
      * @param  \App\Estudio  $estudio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Estudio $estudio)
+    public function update(StoreEstudio $request, Estudio $estudio)
     {
-        //
+        $estudio->update($request->validated());
+        return back()->with('status',' updated succesfully');
     }
 
     /**

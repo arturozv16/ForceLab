@@ -32,7 +32,7 @@
     </div>
     <div class="form-group">
         <label for="url_clean">Fecha de revisión</label>
-        <input type="date" class="form-control" name="fechaRevisión" id="fechaRevisión" value="{{ old('fechaRevisión', $estudio->fechaRevisión) }}">
+        <input type="date" class="form-control" name="fechaRevision" id="fechaRevision" value="{{ old('fechaRevision', $estudio->fechaRevision) }}">
     </div>
     
     <input type="submit" class="btn btn-primary" value="Guardar">

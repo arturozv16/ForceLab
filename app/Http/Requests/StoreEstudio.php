@@ -25,11 +25,16 @@ class StoreEstudio extends FormRequest
     {
         return [
             'tipoEstudio'=>'required | min:3 | max:500',
+            'asistioPaciente'=>'',
             'fechaEstudio'=>'required',
+            'fechaEntrega'=>'date',
+            'fechaProximo'=>'date',
+            'fechaRevision'=>'date',
+        ];
+    }
+}
+
             //'fechaEstudio'=>'required|date|after_or_equal:today',
             //'fechaEntrega'=>'required|date|after:today',
             //'fechaProximo'=>'required|date|after:today',
             //'fechaRevision'=>'required|date|after:today',
-        ];
-    }
-}

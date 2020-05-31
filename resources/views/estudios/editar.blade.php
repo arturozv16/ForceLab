@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    @include('partials/session-flash-status-registro')
+    @include('partials/session-flash-status')
     @include('partials.validation-errors')
     <form action="{{ route("estudios.update",$estudio) }}" method="POST">
     @method("PUT")
