@@ -96,7 +96,7 @@ class EstudioController extends Controller
             'resultadoEstudio' => 'required|mimes:jpeg,jpg,png,pdf|max:10240', //10mb
         ]);
         $filename = time().".".$request->resultadoEstudio->extension();
-        $request->resultadoEstudio->move(public_path(), $filename);
+        $request->resultadoEstudio->move(public_path()."/storage", $filename);
         $estudio->update(['resultadoEstudio'=>$filename,]);
         return back()->with('status',"El resultado del estudio se guardó correctamente");
     }

@@ -48,6 +48,5 @@
 
 
     <br/>
-    {{$route = 'public/1590896056.png'}}
-    <a href="{{ Storage::path($route) }}">Resultado del estudio</a>
+    <a href="{{ asset('storage/'.$estudio->resultadoEstudio) }}">Resultado del estudio</a>
 @endsection
